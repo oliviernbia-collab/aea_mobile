@@ -1,24 +1,46 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "AEA - Espace Membre",
+    "slug": "aea-espace-membre",
+    "scheme": "aea",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "org.aeaassoumoukro.espacemembre",
+      "infoPlist": {
+        "NSCameraUsageDescription": "AEA a besoin de la camera pour prendre une photo de profil ou un justificatif.",
+        "NSPhotoLibraryUsageDescription": "AEA a besoin d'acceder a vos photos pour choisir une photo de profil, un justificatif ou une preuve de paiement."
+      }
     },
     "android": {
+      "package": "org.aeaassoumoukro.espacemembre",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#1e3a8a",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      },
+      "permissions": ["CAMERA", "READ_MEDIA_IMAGES"]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-status-bar",
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "AEA a besoin d'acceder a vos photos pour choisir une photo de profil, un justificatif ou une preuve de paiement.",
+          "cameraPermission": "AEA a besoin de la camera pour prendre une photo de profil ou un justificatif."
+        }
+      ],
+      "expo-document-picker",
+      "expo-secure-store"
+    ]
   }
 }
